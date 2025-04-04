@@ -72,5 +72,5 @@ fun main() {
 
 private fun checkIPv4(name: String, input: String, expected: Boolean) {
     val result = isValidIPv4(input)
-    println("Test case: $name, $input -> Expected: $expected, Got: $result, ${if (result == expected) "✅ Passed" else "❌ Failed"}")
+    println("Test case: $name, input: $input -> Expected: $expected, Got: $result, ${if (result == expected) "✅ Passed" else "❌ Failed"}")
 }
