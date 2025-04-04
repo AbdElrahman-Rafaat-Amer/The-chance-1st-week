@@ -1,3 +1,5 @@
+package sudoku
+
 /***
  * Class that has test cases that validate a List is valid Sudoku.
  * Sudoku Rules:
