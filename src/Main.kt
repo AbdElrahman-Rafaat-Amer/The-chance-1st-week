@@ -18,7 +18,6 @@ fun isValidSudoku(sudokuBoard: Array<Array<String>>): Boolean {
 
     sudokuBoard.forEach { row ->
         if (row.size != sudokuBoard.size) {
-            //Check if the board is prefect Square (Columns = Rows, ex: 3x3, 9x9)
             return false
         }
 
@@ -27,7 +26,6 @@ fun isValidSudoku(sudokuBoard: Array<Array<String>>): Boolean {
             if (!isValidSudokuCell) return false
 
             if (row.toList().hasRepeatedNumbers()) {
-                //Check if row has duplicate cells
                 return false
             }
         }
@@ -40,7 +38,6 @@ fun isValidSudoku(sudokuBoard: Array<Array<String>>): Boolean {
 
     columns.forEach { column ->
         if (column.toList().hasRepeatedNumbers()) {
-            //Check if column has duplicate cells
             return false
         }
     }
@@ -48,7 +45,6 @@ fun isValidSudoku(sudokuBoard: Array<Array<String>>): Boolean {
     val grids = extractSubGrids(sudokuBoard)
     grids.forEach { grid ->
         if (grid.hasRepeatedNumbers()) {
-            //Check if grid has duplicate cells
             return false
         }
     }
@@ -85,7 +81,6 @@ fun getSubGridRowColumn(gridSize: Int): Pair<Int, Int> {
         subGridRow = sqrtValue
         subGridColumn = sqrtValue
     } else {
-        //10x10, 6x6
         for (i in 2..gridSize) {
             if (gridSize % i == 0) {
                 subGridRow = i
@@ -98,7 +93,7 @@ fun getSubGridRowColumn(gridSize: Int): Pair<Int, Int> {
 }
 
 fun Int.isPerfectSquare(): Boolean {
-    if (this < 0) return false // Negative numbers can't be perfect squares
+    if (this < 0) return false
     val sqrtValue = sqrt(this.toDouble()).toInt()
     return sqrtValue * sqrtValue == this
 }
