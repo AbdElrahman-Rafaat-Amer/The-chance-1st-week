@@ -19,7 +19,7 @@
 //                                    | . . . | . 8 . | . 7 9 |
 //                                    +-------+-------+-------+
 
-fun main(){
+fun main() {
 
     // region ValidSudokuFormat
     validateSudoku(
@@ -39,24 +39,28 @@ fun main(){
     )
 
     validateSudoku(
-        name = "Valid 6x6 Sudoku: Fully Empty Board",
+        name = "Valid 3x3 Sudoku: Fully Empty Board",
         input = arrayOf(
-            arrayOf("-", "-", "-", "-", "-", "-"),
-            arrayOf("-", "-", "-", "-", "-", "-"),
-            arrayOf("-", "-", "-", "-", "-", "-"),
-            arrayOf("-", "-", "-", "-", "-", "-"),
-            arrayOf("-", "-", "-", "-", "-", "-"),
-            arrayOf("-", "-", "-", "-", "-", "-")
+            arrayOf("-", "-", "-"),
+            arrayOf("-", "-", "-"),
+            arrayOf("-", "-", "-")
         ),
         expected = true
     )
 
     validateSudoku(
-        name = "Valid 3x3 Sudoku: Includes Empty Values",
+        name = "Valid 10x10 Sudoku: Includes Empty Values",
         input = arrayOf(
-            arrayOf("1", "2", "3"),
-            arrayOf("3", "-", "-"),
-            arrayOf("2", "3", "1"),
+            arrayOf("5", "3", "-", "-", "7", "-", "-", "-", "-", "-"),
+            arrayOf("6", "-", "-", "1", "9", "5", "-", "-", "-", "-"),
+            arrayOf("-", "9", "8", "-", "-", "-", "-", "6", "-", "-"),
+            arrayOf("8", "-", "-", "-", "6", "-", "-", "-", "3", "-"),
+            arrayOf("4", "-", "-", "8", "-", "3", "-", "-", "-", "1"),
+            arrayOf("7", "-", "-", "-", "2", "-", "-", "-", "-", "6"),
+            arrayOf("-", "6", "-", "-", "-", "-", "2", "8", "-", "-"),
+            arrayOf("-", "-", "-", "4", "1", "9", "-", "-", "5", "-"),
+            arrayOf("-", "-", "-", "-", "8", "-", "-", "7", "9", "-"),
+            arrayOf("-", "-", "-", "-", "-", "-", "-", "-", "-", "10")
         ),
         expected = true
     )
@@ -89,7 +93,7 @@ fun main(){
     )
 
     validateSudoku(
-        name = "Invalid Sudoku: The number(5) repeated in 1st Row & Column & 3rd Grid",
+        name = "Invalid Sudoku: The number(5) repeated in Row",
         input = arrayOf(
             arrayOf("5", "3", "4", "6", "7", "8", "9", "1", "5"),
             arrayOf("6", "7", "2", "1", "9", "5", "3", "4", "8"),
@@ -98,8 +102,25 @@ fun main(){
             arrayOf("4", "2", "6", "8", "5", "3", "7", "9", "1"),
             arrayOf("7", "1", "3", "9", "2", "4", "8", "5", "6"),
             arrayOf("9", "6", "1", "5", "3", "7", "2", "8", "4"),
-            arrayOf("2", "8", "7", "4", "1", "9", "6", "3", "5"),
+            arrayOf("2", "8", "7", "4", "1", "9", "6", "3", "-"),
             arrayOf("3", "4", "5", "2", "8", "6", "1", "7", "9")
+        ),
+        expected = false
+    )
+
+    validateSudoku(
+        name = "Invalid Sudoku: The number(5) repeated in Column",
+        input = arrayOf(
+            arrayOf("5", "3", "-", "-", "7", "-", "-", "-", "-", "-"),
+            arrayOf("6", "-", "-", "1", "9", "5", "-", "-", "-", "-"),
+            arrayOf("-", "9", "8", "-", "-", "-", "-", "6", "-", "-"),
+            arrayOf("8", "-", "-", "-", "6", "-", "-", "-", "3", "-"),
+            arrayOf("4", "-", "-", "8", "-", "3", "-", "-", "-", "1"),
+            arrayOf("7", "-", "-", "-", "2", "-", "-", "-", "-", "6"),
+            arrayOf("-", "6", "-", "-", "-", "-", "2", "8", "-", "-"),
+            arrayOf("-", "-", "-", "4", "1", "9", "-", "-", "5", "-"),
+            arrayOf("-", "-", "-", "-", "8", "-", "-", "7", "9", "-"),
+            arrayOf("5", "-", "-", "-", "-", "-", "-", "-", "-", "-")
         ),
         expected = false
     )
