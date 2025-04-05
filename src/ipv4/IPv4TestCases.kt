@@ -1,7 +1,5 @@
 package ipv4
 
-import sudoku.isValidIPv4
-
 /***
  * Class that has test cases that validate a String is valid IPv4.
  * IPv4 Address Rules:
